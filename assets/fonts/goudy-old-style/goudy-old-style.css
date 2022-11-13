@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'goudy-old-style';
+    src: url('~/assets/fonts/goudy-old-style/goudy-old-style.woff') format('woff'),
+         url('~/assets/fonts/goudy-old-style/goudy-old-style.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

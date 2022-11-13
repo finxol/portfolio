@@ -1,0 +1,16 @@
+$dark-blue: #1E2640;
+$rose-red: #922C40;
+$desert-sun: #DC9750;
+$champagne: #F3EAC0;
+
+$color-text: #f0f0f0;
+$color-background: #000000;
+
+
+* {
+    box-sizing: border-box;
+
+    &::selection {
+        background-color: rgba(231, 224, 255, 0.25);
+    }
+}
