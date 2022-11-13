@@ -33,9 +33,11 @@ const navElements = Object.freeze([
                 :key="navElement.link"
                 :to="navElement.link"
             >
-                <font-awesome-icon
-                    :icon="navElement.icon"
-                />
+                <span>
+                    <font-awesome-icon
+                        :icon="navElement.icon"
+                    />
+                </span>
                 <span>{{ navElement.name }}</span>
             </NuxtLink>
         </div>
@@ -93,7 +95,7 @@ nav {
                     $desert-sun,
             );
             background-size: 200% 100%;
-            animation: background-pan 5s linear infinite;
+            animation: background-pan 3s linear infinite;
 
             @keyframes background-pan {
                 from {

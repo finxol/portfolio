@@ -37,8 +37,9 @@ const toggleNav: Function = () => {
         <LazyHeader />
 
         <main>
-
-            <NuxtPage/>
+            <article>
+                <NuxtPage/>
+            </article>
         </main>
 
         <button
@@ -90,10 +91,21 @@ body {
             margin: 0;
             display: flex;
 
-            background-color: #121212;
+            background-color: #000;
             transition: transform, border-radius;
             transition-timing-function: cubic-bezier(.13, .53, .38, .97);
             transition-duration: 500ms;
+
+            article {
+                position: absolute;
+                top: 2rem;
+                right: 3rem;
+                bottom: 4.5rem;
+                left: 3rem;
+                border-radius: $border-radius;
+                background-color: $dark-blue;
+                transition: bottom 500ms cubic-bezier(.13, .53, .38, .97);
+            }
         }
 
         button#nav-toggle {
@@ -138,7 +150,7 @@ body {
         }
 
         &:not(.nav-open) {
-            button#nav-toggle:hover svg.open {
+            button#nav-toggle svg.open {
                 opacity: 1;
                 transform: translate(-50%, -50%) scale(.8);
             }
@@ -158,7 +170,11 @@ body {
 
             main {
                 transform: translateY(-20%) scale(.95);
-                border-radius: 1rem;
+                border-radius: $border-radius;
+
+                article {
+                    bottom: 0;
+                }
             }
 
             button#nav-toggle svg.close {
