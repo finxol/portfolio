@@ -5,24 +5,28 @@ const contacts = [
     {
         name: 'Email',
         link: 'mailto:contact@colinozanne.fr',
+        linkText: 'contact@colinozanne.fr',
         icon: 'fa-solid fa-envelope',
         details: 'Contact me by email',
     },
     {
         name: 'GitHub',
         link: 'https://github.com/finxol',
+        linkText: 'finxol',
         icon: 'fa-brands fa-github',
         details: 'See my projects on GitHub',
     },
     {
         name: 'LinkedIn',
         link: 'https://www.linkedin.com/in/colin-ozanne-5b1b3b1b3/',
+        linkText: 'Colin Ozanne',
         icon: 'fa-brands fa-linkedin',
         details: 'See my profile on LinkedIn',
     },
     {
         name: 'Twitter',
         link: 'https://twitter.com/finxol',
+        linkText: '@_finxol',
         icon: 'fa-brands fa-twitter',
         details: 'Follow me on Twitter',
     },
@@ -98,7 +102,7 @@ const open = (contact: any) => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    {{ contact.link }}
+                    {{ contact.linkText }}
                 </a>
             </div>
         </aside>
