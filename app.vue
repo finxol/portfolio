@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import {onMounted} from "#imports";
-
 const app = ref(null)
 const navToggle = ref(null)
 const navToggleOpen = ref(null)

@@ -1,7 +1,9 @@
 {
   "name": "colinozanne",
   "private": true,
+  "type": "module",
   "version": "2.0.0",
+  "packageManager": "yarn@1.22.19",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
