@@ -95,7 +95,7 @@ nav {
                     $desert-sun,
             );
             background-size: 200% 100%;
-            animation: background-pan 3s linear infinite;
+            animation: background-pan 2s linear infinite;
 
             @keyframes background-pan {
                 from {

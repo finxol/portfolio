@@ -4,20 +4,10 @@ const navToggle = ref(null)
 const navToggleOpen = ref(null)
 const navToggleClose = ref(null)
 
-onMounted(() => {
-    for (const el of [navToggle, navToggleOpen, navToggleClose]) {
+watch(useRoute(), () => {
+    if (app)
         // @ts-ignore
-        el.value.addEventListener('mouseenter', () => {
-            // @ts-ignore
-            app.value.classList.add('nav-hint')
-        })
-        // @ts-ignore
-        el.value.addEventListener('mouseout', () => {
-            // @ts-ignore
-            app.value.classList.remove('nav-hint')
-        })
-
-    }
+        app.value.classList.remove('nav-open')
 })
 
 const toggleNav: Function = () => {
