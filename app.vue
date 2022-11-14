@@ -35,6 +35,7 @@ const toggleNav: Function = () => {
             type="button"
             @click="toggleNav"
             ref="navToggle"
+            aria-label="Toggle Navigation Menu"
         >
             <font-awesome-icon
                 class="open"
