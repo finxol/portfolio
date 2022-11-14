@@ -1,72 +1,194 @@
 <script setup lang="ts">
-
+const skills = [
+    {
+        name: 'HTML / CSS',
+        icon: 'fa-brands fa-html5',
+        level: 5,
+    },
+    {
+        name: 'TypeScript',
+        icon: 'fa-brands fa-js',
+        level: 5,
+    },
+    {
+        name: 'Nuxt',
+        icon: 'fa-brands fa-vuejs',
+        level: 4,
+    },
+    {
+        name: 'Node',
+        icon: 'fa-brands fa-node-js',
+        level: 5,
+    },
+    {
+        name: 'Express',
+        icon: 'fa-brands fa-node-js',
+        level: 5,
+    },
+    {
+        name: 'MongoDB',
+        icon: 'fa-brands fa-mongodb',
+        level: 3,
+    },
+    {
+        name: 'Git',
+        icon: 'fa-brands fa-git-alt',
+        level: 4,
+    },
+    {
+        name: 'Docker',
+        icon: 'fa-brands fa-docker',
+        level: 4,
+    },
+    {
+        name: 'Linux',
+        icon: 'fa-brands fa-linux',
+        level: 4,
+    },
+    {
+        name: 'Rust',
+        icon: 'fa-brands fa-rust',
+        level: 2,
+    },
+    {
+        name: 'Python',
+        icon: 'fa-brands fa-python',
+        level: 4,
+    }
+]
 </script>
 
 <template>
     <section>
-        <p>
-            Hiya! 👋
-        </p>
-        <p>
-            I'm a computer science student from France 🇫🇷.
-        </p>
-        <p>
-            Some of my interests include:
-            <strong>web development</strong>,
-            <strong>infosec</strong>,
-            <strong>cybersecurity</strong>
-            and <strong>systems administration</strong>.
-        </p>
-        <p>
-            I'm currently working on <a href="https://unicovoit.fr" target="_blank" rel="noreferrer noopener">UniCovoit</a>, a carpooling platform for students;
-            but you can find my other most interesting projects just <NuxtLink to="/projects">next door</NuxtLink>.
-        </p>
-        <p>
-            I regularly take part in CTFs and other cybersecurity events & conferences.
-        </p>
-        <p>
-            I natively speak 🇬🇧 <strong>English</strong> and 🇫🇷 <strong>French</strong>.
-        </p>
-        <p>
-            Feel free to use my <NuxtLink to="/contact">contact details</NuxtLink> if you wish to get in touch.
-        </p>
+        <div
+            id="container"
+        >
+            <div
+                id="skills"
+            >
+                <h1>Skills</h1>
+                <div
+                    id="skills-container"
+                >
+                    <div
+                        v-for="skill in skills"
+                        :key="skill.name"
+                        class="skill"
+                    >
+                        <span>
+                            <font-awesome-icon
+                                :icon="skill.icon"
+                            />
+                        </span>
+                        <span>
+                            {{ skill.name }}
+                        </span>
+                        <span>
+                            <font-awesome-icon
+                                icon="fa-solid fa-star"
+                                v-for="i in skill.level"
+                                :key="i"
+                            />
+                            <font-awesome-icon
+                                icon="fa-regular fa-star"
+                                v-for="i in (5 - skill.level)"
+                                :key="i"
+                            />
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-        <small>
-            Please note that this website is still a work in progress.
-        </small>
+            <div
+                id="experiences"
+            >
+
+            </div>
+        </div>
     </section>
 </template>
 
 <style scoped lang="scss">
 section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: clamp(.5rem, 2vh, 1rem);
-    width: 70%;
-    min-height: 100%;
-    margin: 0 auto;
-    font-size: 1.5rem;
+    min-height: calc(100% - 2rem);
+    width: calc(100% - 2rem);
+    margin: 0 auto 2rem;
 
-    @media (max-width: 768px) {
-        width: 80%;
-        margin: 2rem auto 5rem;
+    h1 {
+        margin: 0;
+        padding-top: 3rem;
+        font-size: 3rem;
+        text-align: center;
     }
 
-    p {
-        margin: 0;
-        text-align: justify;
+    div#container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 100%;
+        margin: 1rem 0;
 
         @media (max-width: 768px) {
-            text-align: left;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
         }
-    }
 
-    small {
-        margin-top: 3rem;
-        font-size: 1rem;
-        font-style: italic;
+        div#skills {
+            height: 100%;
+            width: 100%;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+            @media (max-width: 768px) {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            div#skills-container {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
+                align-items: center;
+                margin-top: 2rem;
+
+                div.skill {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 10rem;
+                    height: 10rem;
+                    border: 1px solid #f0f0f0;
+                    border-radius: 0.5rem;
+                    padding: 0.5rem;
+                    text-align: center;
+
+                    span {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    span:first-child {
+                        font-size: 2rem;
+                    }
+
+                    span:nth-child(2) {
+                        font-size: 1.5rem;
+                    }
+
+                    span:last-child {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
     }
 }
 </style>
