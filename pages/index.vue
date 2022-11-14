@@ -13,12 +13,12 @@
             </span>
             Software Engineer
         </h2>
-        <h4>
+        <h3>
             <span>
                 <font-awesome-icon icon="fa-solid fa-graduation-cap"/>
             </span>
             Computer Science Student
-        </h4>
+        </h3>
         <a
             href="#about"
         >
@@ -100,7 +100,7 @@ section#home {
         font-size: 1.7rem;
     }
 
-    h4 {
+    h3 {
         font-size: 1.4rem;
     }
 
