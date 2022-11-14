@@ -79,7 +79,7 @@ body {
             margin: 0;
             display: flex;
 
-            background-color: #000;
+            background-color: $color-background;
             transition: transform, border-radius;
             transition-timing-function: cubic-bezier(.13, .53, .38, .97);
             transition-duration: 500ms;
@@ -90,9 +90,18 @@ body {
                 right: 3rem;
                 bottom: 4.5rem;
                 left: 3rem;
+                overflow-y: auto;
                 border-radius: $border-radius;
+                box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5);
                 background-color: $dark-blue;
                 transition: bottom 500ms cubic-bezier(.13, .53, .38, .97);
+
+                @media (max-width: 768px) {
+                    top: 1rem;
+                    right: 1rem;
+                    bottom: 2rem;
+                    left: 1rem;
+                }
             }
         }
 
@@ -110,6 +119,7 @@ body {
             outline: none;
             box-shadow: 0 0 4rem rgba(0 0 0 / 35%);
             cursor: pointer;
+            -webkit-tap-highlight-color: transparent; // remove tap highlight in chrome
 
             transition: transform, background-color;
             transition-timing-function: ease;
@@ -159,6 +169,10 @@ body {
             main {
                 transform: translateY(-20%) scale(.95);
                 border-radius: $border-radius;
+
+                @media (max-width: 768px) {
+                    transform: translateY(-55%) scale(.95);
+                }
 
                 article {
                     bottom: 0;

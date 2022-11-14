@@ -44,14 +44,22 @@ section {
     justify-content: center;
     align-items: flex-start;
     gap: clamp(.5rem, 2vh, 1rem);
-    height: 100%;
     width: 70%;
     margin: 0 auto;
     font-size: 1.5rem;
 
+    @media (max-width: 768px) {
+        width: 80%;
+        margin: 2rem auto 5rem;
+    }
+
     p {
         margin: 0;
         text-align: justify;
+
+        @media (max-width: 768px) {
+            text-align: left;
+        }
     }
 
     small {

@@ -31,22 +31,12 @@ section {
     gap: clamp(.5rem, 2vh, 1rem);
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 100%;
     background-image: url("/wave.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-
-    &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-        background-color: rgba(0, 0, 0, .3);
-    }
 
     * {
         margin: 0;
@@ -56,6 +46,10 @@ section {
     h1 {
         font-size: 5rem;
         font-weight: bolder;
+
+        @media (max-width: 768px) {
+            margin-bottom: 8rem;
+        }
     }
 
     h2 {
@@ -64,6 +58,7 @@ section {
 
     h4 {
         font-size: 1.4rem;
+        margin-bottom: 6rem;
     }
 }
 </style>

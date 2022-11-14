@@ -60,6 +60,10 @@ nav {
     width: calc(100% - 2rem);
     z-index: 1;
 
+    @media (max-width: 768px) {
+        height: calc(50vh - 1.5rem);
+    }
+
     div#nav-links {
         display: flex;
         margin: 0 1rem 1rem;
@@ -104,6 +108,10 @@ nav {
                 to {
                     background-position: 200% center;
                 }
+            }
+
+            @media (max-width: 768px) {
+                margin-bottom: 1rem;
             }
 
             &:before {
