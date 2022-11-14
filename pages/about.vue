@@ -45,6 +45,7 @@ section {
     align-items: flex-start;
     gap: clamp(.5rem, 2vh, 1rem);
     width: 70%;
+    min-height: 100%;
     margin: 0 auto;
     font-size: 1.5rem;
 
