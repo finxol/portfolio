@@ -6,7 +6,7 @@
     <section
         id="home"
     >
-        <h1>Colin Ozanne-Audroing</h1>
+        <h1>Colin Ozanne</h1>
         <h2>
             <span>
                 <font-awesome-icon icon="fa-solid fa-desktop"/>
@@ -35,7 +35,7 @@
             Hiya! 👋
         </p>
         <p>
-            I'm a computer science student from France 🇫🇷.
+            I'm a computer science student from 🇫🇷 France, currently in 🇫🇮 Finland for an Erasmus semester.
         </p>
         <p>
             Some of my interests include:
