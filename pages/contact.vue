@@ -1,62 +1,54 @@
-<script setup lang="ts">
-const contactContainer = ref(null)
-
-const contacts = [
+<script setup>
+const contacts = reactive([
     {
         name: 'Email',
         link: 'mailto:contact@colinozanne.fr',
         linkText: 'contact@colinozanne.fr',
         icon: 'fa-solid fa-envelope',
-        details: 'Contact me by email',
+        details: 'Feel free to send me an email if you wish to get in touch.',
+        show: false,
     },
     {
         name: 'GitHub',
         link: 'https://github.com/finxol',
         linkText: 'finxol',
         icon: 'fa-brands fa-github',
-        details: 'See my projects on GitHub',
+        details: 'I publish most of my work over on Github, so make sure to check it out!',
+        show: false,
     },
     {
         name: 'LinkedIn',
         link: 'https://www.linkedin.com/in/colin-ozanne-5b1b3b1b3/',
         linkText: 'Colin Ozanne',
         icon: 'fa-brands fa-linkedin',
-        details: 'See my profile on LinkedIn',
+        details: "I'm also on LinkedIn, so feel free to connect with me there!",
+        show: false,
     },
     {
         name: 'Twitter',
         link: 'https://twitter.com/finxol',
         linkText: '@_finxol',
         icon: 'fa-brands fa-twitter',
-        details: 'Follow me on Twitter',
+        details: "I'm not too on Twitter, but you can still follow me if you want to.",
+        show: false,
     },
-]
-
-const open = (contact: any) => {
-    if (contactContainer) {
-        const contactElementAside = document.querySelector(`div#${contact.name}`)
-        const contactDetails = document.querySelector(`aside.contact-details`)
-
-        if (contactElementAside?.classList.contains('open')) {
-            // @ts-ignore
-            contactContainer.value.classList.remove('open')
-            contactElementAside.classList.remove('open')
-            contactDetails.classList.remove('open')
-        } else {
-            // @ts-ignore
-            contactContainer.value.classList.add('open')
-            contactElementAside.classList.add('open')
-            contactDetails.classList.add('open')
-        }
-
-
-        const asides = document.querySelectorAll('div.contact-element-aside')
-        asides.forEach((aside) => {
-            if (aside.id !== contact.name) {
-                aside.classList.remove('open')
-            }
-        })
+    {
+        name: 'Mastodon',
+        link: 'https://mamot.fr/@User038418',
+        linkText: '@finxol',
+        icon: 'fa-brands fa-mastodon',
+        details: "These days, I'm mostly active on Mastodon.",
+        show: false,
     }
+])
+
+const showModal = computed(() => contacts.some(contact => contact.show))
+
+const open = (contact) => {
+    contacts.filter(c => c != contact).forEach((c) => {
+        c.show = false
+    })
+    contact.show = !contact.show
 }
 </script>
 
@@ -65,7 +57,6 @@ const open = (contact: any) => {
         <h1>Contact</h1>
         <div
             id="contacts"
-            ref="contactContainer"
         >
             <div
                 v-for="contact in contacts"
@@ -86,24 +77,27 @@ const open = (contact: any) => {
         </div>
         <aside
             class="contact-details"
+            :class="{ open: showModal }"
         >
             <div
                 v-for="contact in contacts"
                 :key="contact.name"
-                :id="contact.name"
                 class="contact-element-aside"
-                ref="contactElementAside"
             >
-                <h2>
-                    {{ contact.details }}
-                </h2>
-                <a
-                    :href="contact.link"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <div
+                    v-if="contact.show"
                 >
-                    {{ contact.linkText }}
-                </a>
+                    <h2>
+                        {{ contact.details }}
+                    </h2>
+                    <a
+                        :href="contact.link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {{ contact.linkText }}
+                    </a>
+                </div>
             </div>
         </aside>
     </section>
@@ -112,7 +106,6 @@ const open = (contact: any) => {
 <style scoped lang="scss">
 @import "assets/css/main.scss";
 
-
 $container-width: clamp(30rem, 60vw, 60rem);
 
 section {
@@ -120,10 +113,16 @@ section {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: clamp(.5rem, 2vh, 1rem);
+    gap: clamp(1.5rem, 5vh, 4rem);
     justify-content: center;
     align-items: center;
     height: 100%;
+
+    @media (max-width: 768px) {
+        margin-top: 2rem;
+        justify-content: normal;
+        gap: clamp(1.5rem, 5vh, 4rem);
+    }
 
     * {
         margin: 0;
@@ -133,6 +132,10 @@ section {
     h1 {
         font-size: 5rem;
         font-weight: bolder;
+
+        @media (max-width: 768px) {
+            font-size: 3rem;
+        }
     }
 
     div#contacts {
@@ -144,6 +147,12 @@ section {
         align-items: center;
         width: $container-width;
         transition: all .5s ease-in-out;
+
+        @media (max-width: 768px) {
+            flex-direction: row;
+            justify-content: center;
+            width: 80%;
+        }
 
         div.contact-element {
             display: flex;
@@ -169,25 +178,47 @@ section {
         color: #000000;
         background-color: #ffffff;
         border-radius: .2rem;
-        transition: height, padding;
+        border: 0 solid lighten($dark-blue, 20%);
+        transition: height, padding, border;
         transition-duration: .5s;
         transition-timing-function: ease-in-out;
         overflow: hidden;
 
         &.open {
             height: 15rem;
-            padding: 1rem;
-            border: 5px solid lighten($dark-blue, 20%);
+            border-width: 5px;
         }
 
         div.contact-element-aside {
-            justify-content: space-between;
-            align-content: center;
-            height: 100%;
-            display: none;
+            display: flex;
+            flex-direction: column;
 
-            &.open {
+            &:not(:empty) {
+                height: 100%;
+            }
+
+            div {
                 display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 1rem;
+                height: calc(100% - 2rem);
+
+                h2, a {
+                    text-align: center;
+                    height: max-content;
+                }
+
+                a {
+                    width: max-content;
+                    min-width: 30%;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+
+                h2 {
+                    width: 65%;
+                }
             }
         }
     }
