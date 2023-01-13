@@ -3,12 +3,12 @@ const skills = [
     {
         name: 'HTML / CSS',
         icon: 'fa-brands fa-html5',
-        level: 5,
+        level: 4.5,
     },
     {
         name: 'TypeScript',
         icon: 'fa-brands fa-js',
-        level: 5,
+        level: 4.5,
     },
     {
         name: 'Nuxt',
@@ -18,12 +18,12 @@ const skills = [
     {
         name: 'Node',
         icon: 'fa-brands fa-node-js',
-        level: 5,
+        level: 4.5,
     },
     {
         name: 'Express',
         icon: 'fa-brands fa-node-js',
-        level: 5,
+        level: 4.5,
     },
     {
         name: 'MongoDB',
@@ -33,12 +33,12 @@ const skills = [
     {
         name: 'Git',
         icon: 'fa-brands fa-git-alt',
-        level: 4,
+        level: 3.5,
     },
     {
         name: 'Docker',
         icon: 'fa-brands fa-docker',
-        level: 4,
+        level: 3.5,
     },
     {
         name: 'Linux',
@@ -56,6 +56,18 @@ const skills = [
         level: 4,
     }
 ]
+
+const lowerStar = (level: number) => {
+    return Math.floor(level)
+}
+
+const halfStar = (level: number) => {
+    return level % 1 >= 0.5
+}
+
+const upperStar = (level: number) => {
+    return Math.ceil(level)
+}
 </script>
 
 <template>
@@ -86,12 +98,16 @@ const skills = [
                         <span>
                             <font-awesome-icon
                                 icon="fa-solid fa-star"
-                                v-for="i in skill.level"
+                                v-for="i in lowerStar(skill.level)"
                                 :key="i"
                             />
                             <font-awesome-icon
+                                icon="fa-solid fa-star-half-alt"
+                                v-if="halfStar(skill.level)"
+                            />
+                            <font-awesome-icon
                                 icon="fa-regular fa-star"
-                                v-for="i in (5 - skill.level)"
+                                v-for="i in (5 - upperStar(skill.level))"
                                 :key="i"
                             />
                         </span>
@@ -162,10 +178,11 @@ section {
                     justify-content: center;
                     align-items: center;
                     width: 10rem;
-                    height: 10rem;
-                    border: 1px solid #f0f0f0;
-                    border-radius: 0.5rem;
+                    height: 9rem;
                     padding: 0.5rem;
+                    border: none;
+                    border-radius: 0.5rem;
+                    background-color: rgba(255, 255, 255, 0.1);
                     text-align: center;
 
                     span {
@@ -184,7 +201,8 @@ section {
                     }
 
                     span:last-child {
-                        font-size: 1.5rem;
+                        padding-top: .5rem;
+                        font-size: 1.1rem;
                     }
                 }
             }
