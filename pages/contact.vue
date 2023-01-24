@@ -18,7 +18,7 @@ const contacts = reactive([
     },
     {
         name: 'LinkedIn',
-        link: 'https://www.linkedin.com/in/colin-ozanne-5b1b3b1b3/',
+        link: 'https://www.linkedin.com/in/colin-ozanne-99594822a/',
         linkText: 'Colin Ozanne',
         icon: 'fa-brands fa-linkedin',
         details: "I'm also on LinkedIn, so feel free to connect with me there!",
@@ -29,7 +29,7 @@ const contacts = reactive([
         link: 'https://twitter.com/finxol',
         linkText: '@_finxol',
         icon: 'fa-brands fa-twitter',
-        details: "I'm not too on Twitter, but you can still follow me if you want to.",
+        details: "I'm not so much on Twitter anymore, but you can still follow me if you want to.",
         show: false,
     },
     {
