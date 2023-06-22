@@ -12,7 +12,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.13"
+    "nuxt": "3.4.3"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
