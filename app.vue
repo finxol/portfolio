@@ -168,8 +168,7 @@ body {
             }
 
             main {
-                transform: translateY(-20%) scale(.95);
-                border-radius: $border-radius;
+                transform: translateY(-24vh) scale(.95);
 
                 @media (max-width: 768px) {
                     transform: translateY(-55%) scale(.95);

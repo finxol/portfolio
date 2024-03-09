@@ -56,7 +56,7 @@ nav {
     left: 0;
     margin: 0 auto;
     overflow: hidden;
-    height: calc(20vh - 1.5rem);
+    height: calc(23vh - 1.5rem);
     width: calc(100% - 2rem);
     z-index: 1;
 
