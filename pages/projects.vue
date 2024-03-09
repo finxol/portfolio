@@ -16,6 +16,13 @@ const projects: project[] = [
         tags: ['Nuxt.js 2', 'Node.js', 'Express.js', 'MongoDB', 'Docker', 'GitHub Actions'],
     },
     {
+        name: 'Travel Blog',
+        link: 'https://colinswanderlustchronicles.com',
+        description: 'My personal platform where I write about my travels',
+        img: '/travelblog.png',
+        tags: ['Ghost'],
+    },
+    {
         name: 'Nuit de l\'info 2022',
         link: 'https://www.nuitdelinfo.com/',
         description: 'Website for the 2022 edition of the Nuit de l\'info',
