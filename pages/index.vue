@@ -3,39 +3,36 @@
 </script>
 
 <template>
-    <section
-        id="home"
-    >
+    <section id="home">
         <h1>Colin Ozanne</h1>
         <h2>
             <span>
-                <font-awesome-icon icon="fa-solid fa-desktop"/>
+                <font-awesome-icon icon="fa-solid fa-desktop" />
             </span>
             Software Engineer
         </h2>
         <h3>
             <span>
-                <font-awesome-icon icon="fa-solid fa-graduation-cap"/>
+                <font-awesome-icon icon="fa-solid fa-graduation-cap" />
             </span>
             Computer Science Student
         </h3>
-        <a
-            href="#about"
-        >
+        <a href="#about">
             <span>
-                <font-awesome-icon icon="fa-solid fa-user"/>
+                <font-awesome-icon icon="fa-solid fa-user" />
             </span>
             About Me
         </a>
     </section>
-    <section
-        id="about"
-    >
+    <section id="about">
         <p>
             Hiya! 👋
         </p>
         <p>
-            I'm a computer science student from 🇫🇷 France, currently in 🇫🇮 Finland for an Erasmus semester.
+            I'm a computer science student from 🇫🇷 France.
+        </p>
+        <p>
+          I natively speak 🇬🇧 <strong>English</strong> and 🇫🇷 <strong>French</strong>.
         </p>
         <p>
             Some of my interests include:
@@ -45,14 +42,12 @@
             and <strong>systems administration</strong>.
         </p>
         <p>
-            I'm currently working on <a href="https://unicovoit.fr" target="_blank" rel="noreferrer noopener">UniCovoit</a>, a carpooling platform for students;
+            I'm currently working on <a href="https://unicovoit.fr" target="_blank" rel="noreferrer noopener">UniCovoit</a>,
+            a carpooling platform for students;
             but you can find my other most interesting projects just <NuxtLink to="/projects">next door</NuxtLink>.
         </p>
         <p>
             I regularly take part in CTFs and other cybersecurity events & conferences.
-        </p>
-        <p>
-            I natively speak 🇬🇧 <strong>English</strong> and 🇫🇷 <strong>French</strong>.
         </p>
         <p>
             Feel free to use my <NuxtLink to="/contact">contact details</NuxtLink> if you wish to get in touch.
