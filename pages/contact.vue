@@ -25,14 +25,6 @@ const contacts = reactive([
         show: false,
     },
     {
-        name: 'Twitter',
-        link: 'https://twitter.com/finxol',
-        linkText: '@_finxol',
-        icon: 'fa-brands fa-twitter',
-        details: "I'm not so much on Twitter anymore, but you can still follow me if you want to.",
-        show: false,
-    },
-    {
         name: 'Mastodon',
         link: 'https://mamot.fr/@User038418',
         linkText: '@finxol',
@@ -44,8 +36,10 @@ const contacts = reactive([
 
 const showModal = computed(() => contacts.some(contact => contact.show))
 
+const openElement = computed(() => contacts.find(c => c.show))
+
 const open = (contact) => {
-    contacts.filter(c => c != contact).forEach((c) => {
+    contacts.filter(c => c !== contact).forEach((c) => {
         c.show = false
     })
     contact.show = !contact.show
@@ -62,6 +56,7 @@ const open = (contact) => {
                 v-for="contact in contacts"
                 :key="contact.name"
                 class="contact-element"
+                :class="{ open: contact.show }"
                 @click="open(contact)"
             >
                 <span>
@@ -74,8 +69,26 @@ const open = (contact) => {
                 </span>
 
             </div>
+            <div
+                class="contact-expanded-element"
+            >
+                <p
+                    v-if="openElement?.details"
+                >
+                    {{ openElement.details }}
+                </p>
+                <a
+                    v-if="openElement?.link"
+                    :href="openElement.link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {{ openElement.linkText }}
+                </a>
+            </div>
         </div>
         <aside
+            style="display: none"
             class="contact-details"
             :class="{ open: showModal }"
         >
@@ -111,12 +124,12 @@ $container-width: clamp(30rem, 60vw, 60rem);
 section {
     position: relative;
     z-index: 1;
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     gap: clamp(1.5rem, 5vh, 4rem);
     justify-content: center;
     align-items: center;
-    height: 100%;
 
     @media (max-width: 768px) {
         margin-top: 2rem;
@@ -139,19 +152,27 @@ section {
     }
 
     div#contacts {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: clamp(1rem, 2vw, 3rem);
-        justify-content: space-between;
-        align-items: center;
-        width: $container-width;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "div1 div2 div3 div4"
+            "open-area open-area open-area open-area";
+        gap: 4rem;
+        width: fit-content;
         transition: all .5s ease-in-out;
 
         @media (max-width: 768px) {
-            flex-direction: row;
-            justify-content: center;
-            width: 80%;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-template-areas:
+                "div1 div2"
+                "div3 div4"
+                "open-area open-area"
+                "open-area open-area";
+            gap: clamp(1rem, 5vw,2rem);
+            justify-items: center;
+            width: 90%;
         }
 
         div.contact-element {
@@ -168,8 +189,49 @@ section {
             background-color: #ffffff;
             color: #000000;
             cursor: pointer;
+
+            @for $i from 1 through 4 {
+                &:nth-child(#{$i}) {
+                    grid-area: div#{$i};
+                }
+            }
+
+            &.open {
+                background-color: mix(#fff, $dark-blue, 20%);
+                color: #ffffff;
+            }
         }
 
+        div.contact-expanded-element {
+            grid-area: open-area;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+
+            p {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            a {
+                display: inline-block;
+                margin-top: 1rem;
+                padding: .5rem 1rem;
+                transition: all .2s ease-in-out;
+                border-radius: .5rem;
+                background-color: rgba(255, 255, 255, .75);
+                color: $dark-blue;
+                font-size: 1.5rem;
+                font-weight: bold;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: $dark-blue;
+                    color: #ffffff;
+                }
+            }
+        }
     }
 
     aside.contact-details {
@@ -183,11 +245,6 @@ section {
         transition-duration: .5s;
         transition-timing-function: ease-in-out;
         overflow: hidden;
-
-        &.open {
-            height: 15rem;
-            border-width: 5px;
-        }
 
         div.contact-element-aside {
             display: flex;
