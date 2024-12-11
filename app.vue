@@ -1,19 +1,19 @@
 <script setup lang="ts">
 const app = ref(null)
-const navToggle = ref(null)
-const navToggleOpen = ref(null)
-const navToggleClose = ref(null)
+const article = ref(null)
 
-watch(useRoute(), () => {
-    if (app)
-        // @ts-ignore
-        app.value.classList.remove('nav-open')
-})
+const navOpen = ref(false)
+
 
 const toggleNav: Function = () => {
-    if (app.value)
-        // @ts-ignore
-        app.value.classList.toggle('nav-open')
+    navOpen.value = !navOpen.value
+}
+
+const routeChanged: Function = () => {
+    navOpen.value = false
+    if (article.value) {
+        article.value.scrollTo(0, 0)
+    }
 }
 </script>
 
@@ -21,11 +21,16 @@ const toggleNav: Function = () => {
     <div
         id="app"
         ref="app"
+        :class="{ 'nav-open': navOpen }"
     >
-        <LazyHeader />
+        <LazyHeader
+            @navigated="routeChanged"
+        />
 
         <main>
-            <article>
+            <article
+                ref="article"
+            >
                 <NuxtPage/>
             </article>
         </main>
@@ -34,18 +39,15 @@ const toggleNav: Function = () => {
             id="nav-toggle"
             type="button"
             @click="toggleNav"
-            ref="navToggle"
             aria-label="Toggle Navigation Menu"
         >
             <font-awesome-icon
                 class="open"
                 icon="fa-solid fa-bars-staggered"
-                ref="navToggleOpen"
             />
             <font-awesome-icon
                 class="close"
                 icon="fa-solid fa-xmark"
-                ref="navToggleClose"
             />
         </button>
     </div>

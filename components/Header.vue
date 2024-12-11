@@ -21,6 +21,8 @@ const navElements = Object.freeze([
         icon: 'fa-solid fa-envelope',
     },
 ])
+
+const emits = defineEmits(['navigated'])
 </script>
 
 <template>
@@ -32,6 +34,7 @@ const navElements = Object.freeze([
                 v-for="navElement in navElements"
                 :key="navElement.link"
                 :to="navElement.link"
+                @click="$emit('navigated')"
             >
                 <span>
                     <font-awesome-icon
