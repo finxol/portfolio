@@ -6,7 +6,7 @@ const contacts = reactive([
         linkText: 'contact@colinozanne.fr',
         icon: 'fa6-solid:envelope',
         details: 'Feel free to send me an email if you wish to get in touch.',
-        show: false,
+        show: true,
     },
     {
         name: 'GitHub',
@@ -25,11 +25,11 @@ const contacts = reactive([
         show: false,
     },
     {
-        name: 'Mastodon',
-        link: 'https://mamot.fr/@User038418',
-        linkText: '@finxol',
-        icon: 'fa-brands fa-mastodon',
-        details: "These days, I'm mostly active on Mastodon.",
+        name: 'Bluesky',
+        link: 'https://bsky.app/profile/finxol.io',
+        linkText: '@finxol.io',
+        icon: 'mingcute:bluesky-social-fill',
+        details: "These days, I'm mostly active on Bluesky.",
         show: false,
     }
 ])
@@ -171,7 +171,7 @@ section {
                 "div3 div4"
                 "open-area open-area"
                 "open-area open-area";
-            gap: clamp(1rem, 5vw,2rem);
+            gap: 1rem;
             justify-items: center;
             width: 90%;
         }
@@ -191,6 +191,17 @@ section {
             color: #000000;
             cursor: pointer;
 
+            @media (max-width: 768px) {
+                height: 7rem;
+                width: 7rem;
+                padding: 1rem;
+                font-size: 1.3rem;
+
+                span.iconify {
+                    font-size: 2rem;
+                }
+            }
+
             @for $i from 1 through 4 {
                 &:nth-child(#{$i}) {
                     grid-area: div#{$i};
@@ -209,6 +220,10 @@ section {
             margin-left: auto;
             margin-right: auto;
             text-align: center;
+
+            @media (max-width: 768px) {
+                margin-top: 2rem;
+            }
 
             p {
                 font-size: 1.5rem;
