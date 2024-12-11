@@ -12,43 +12,29 @@ const projects: project[] = [
         name: 'UniCovoit',
         link: 'https://unicovoit.fr',
         description: 'Carpool platform for students',
-        img: '/unicovoit_homepage.png',
-        tags: ['Nuxt.js 2', 'Node.js', 'Express.js', 'MongoDB', 'Docker', 'GitHub Actions'],
-    },
-    {
-        name: 'Travel Blog',
-        link: 'https://colinswanderlustchronicles.com',
-        description: 'My personal platform where I write about my travels',
-        img: '/travelblog.png',
-        tags: ['Ghost'],
-    },
-    {
-        name: 'Nuit de l\'info 2022',
-        link: 'https://www.nuitdelinfo.com/',
-        description: 'Website for the 2022 edition of the Nuit de l\'info',
-        img: '/nuitdelinfo2022.png',
-        tags: ['Nuxt.js 3', 'SCSS'],
-    },
-    {
-        name: 'Nuit de l\'info 2021',
-        link: 'https://www.nuitdelinfo.com/',
-        description: 'Website for the 2021 edition of the Nuit de l\'info',
-        img: '/nuitdelinfo.png',
-        tags: ['Python', 'Flask', 'MySQL', 'SCSS'],
-    },
-    {
-        name: 'Privacy Online',
-        link: 'https://privacyonline.finxol.io',
-        description: 'A website that recommends privacy-friendly alternatives and online privacy-related articles.',
-        img: '/privacy-online-en_homepage.webp',
-        tags: ['Node.js', 'HTML/CSS', 'JavaScript', 'MySQL'],
+        img: '/unicovoit_homepage.jpg',
+        tags: ['Nuxt.js 2', 'Express.js', 'MongoDB', 'Docker', 'GitHub Actions'],
     },
     {
         name: 'Blog',
         link: 'https://finxol.io',
         description: 'My personal blog where I write about cybersecurity, web development and other stuff',
-        img: '/finxol-blog-homepage.png',
-        tags: ['Nuxt.js 2', 'Markdown'],
+        img: '/finxol-blog-homepage.jpg',
+        tags: ['Nuxt.js 3', 'Markdown'],
+    },
+    {
+        name: 'Travel Blog',
+        link: 'https://colinswanderlustchronicles.com',
+        description: 'My personal platform where I write about my travels',
+        img: '/travelblog.jpg',
+        tags: ['Ghost'],
+    },
+    {
+        name: 'Nuit de l\'info 2021 and 2022',
+        link: 'https://www.nuitdelinfo.com/',
+        description: 'Website for the 2022 edition of the Nuit de l\'info',
+        img: '/nuitdelinfo2022.png',
+        tags: ['Nuxt.js 3', 'SCSS', 'Python Flask', 'MySQL'],
     },
     {
         name: 'PrestoMaDose',
@@ -163,12 +149,7 @@ section {
             overflow: hidden;
             border-radius: .3rem;
             box-shadow: 5px 5px 1rem rgba(0, 0, 0, .5);
-            transition: transform .2s ease;
             cursor: pointer;
-
-            &:hover {
-                transform: scale(1.03);
-            }
 
             @media (max-width: 768px) {
                 width: 100%;
@@ -184,6 +165,11 @@ section {
                 object-fit: cover;
                 object-position: top;
                 border-radius: .3rem;
+                transition: transform .2s ease;
+            }
+
+            &:hover img {
+                transform: scale(1.03);
             }
 
             div.project-info {
