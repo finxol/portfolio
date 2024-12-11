@@ -41,21 +41,21 @@ const routeChanged: Function = () => {
             @click="toggleNav"
             aria-label="Toggle Navigation Menu"
         >
-            <font-awesome-icon
+            <Icon
                 class="open"
-                icon="fa-solid fa-bars-staggered"
+                name="fa6-solid:bars"
             />
-            <font-awesome-icon
+            <Icon
                 class="close"
-                icon="fa-solid fa-xmark"
+                name="fa6-solid:xmark"
             />
         </button>
     </div>
 </template>
 
 <style lang="scss">
-@import "assets/fonts/goudy-old-style/goudy-old-style.css";
-@import "assets/css/main.scss";
+@use "assets/fonts/goudy-old-style/goudy-old-style.css" as *;
+@use "assets/css/main.scss" as *;
 
 body {
     margin: 0;
@@ -136,7 +136,7 @@ body {
                 transform: translateX(-50%) scale(0.91);
             }
 
-            svg[data-prefix="fas"] {
+            span.iconify {
                 position: absolute;
                 left: 50%;
                 top: 50%;
@@ -151,7 +151,7 @@ body {
         }
 
         &:not(.nav-open) {
-            button#nav-toggle svg.open {
+            button#nav-toggle span.iconify.open {
                 opacity: 1;
                 transform: translate(-50%, -50%) scale(.8);
             }
@@ -181,7 +181,7 @@ body {
                 }
             }
 
-            button#nav-toggle svg.close {
+            button#nav-toggle span.iconify.close {
                 opacity: 1;
                 transform: translate(-50%, -50%) scale(.8);
             }

@@ -7,19 +7,19 @@
         <h1>Colin Ozanne</h1>
         <h2>
             <span>
-                <font-awesome-icon icon="fa-solid fa-desktop" />
+                <Icon name="fa6-solid:desktop" />
             </span>
             Software Engineer
         </h2>
         <h3>
             <span>
-                <font-awesome-icon icon="fa-solid fa-graduation-cap" />
+                <Icon name="fa6-solid:graduation-cap" />
             </span>
             Computer Science Student
         </h3>
         <a href="#about">
             <span>
-                <font-awesome-icon icon="fa-solid fa-user" />
+                <Icon name="fa6-solid:user" />
             </span>
             About Me
         </a>
@@ -60,7 +60,7 @@
 </template>
 
 <style scoped lang="scss">
-@import "assets/css/main.scss";
+@use "assets/css/main.scss" as *;
 
 section#home {
     position: relative;

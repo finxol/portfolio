@@ -3,22 +3,22 @@ const navElements = Object.freeze([
     {
         name: 'Home',
         link: '/',
-        icon: 'fa-solid fa-house',
+        icon: 'fa6-solid:house',
     },
     {
         name: 'About',
         link: '/about',
-        icon: 'fa-solid fa-user',
+        icon: 'fa6-solid:user',
     },
     {
         name: 'Projects',
         link: '/projects',
-        icon: 'fa-solid fa-rocket',
+        icon: 'fa6-solid:rocket',
     },
     {
         name: 'Contact',
         link: '/contact',
-        icon: 'fa-solid fa-envelope',
+        icon: 'fa6-solid:envelope',
     },
 ])
 
@@ -37,8 +37,8 @@ const emits = defineEmits(['navigated'])
                 @click="$emit('navigated')"
             >
                 <span>
-                    <font-awesome-icon
-                        :icon="navElement.icon"
+                    <Icon
+                        :name="navElement.icon"
                     />
                 </span>
                 <span>{{ navElement.name }}</span>
@@ -48,7 +48,7 @@ const emits = defineEmits(['navigated'])
 </template>
 
 <style scoped lang="scss">
-@import "assets/css/main.scss";
+@use "assets/css/main.scss" as *;
 
 $box-side: 7rem;
 

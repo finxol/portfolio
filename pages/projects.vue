@@ -112,7 +112,8 @@ function openLink(link: string) {
 </template>
 
 <style scoped lang="scss">
-@import "assets/css/main.scss";
+@use "assets/css/main.scss" as *;
+@use "sass:color";
 
 section {
     min-height: 100%;
@@ -201,7 +202,7 @@ section {
                     span.tag {
                         padding: .2rem .5rem;
                         border-radius: 10rem;
-                        background: darken($rose-red, 8%);
+                        background: color.adjust($rose-red, $lightness: -8%);
                     }
                 }
 

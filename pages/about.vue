@@ -2,58 +2,53 @@
 const skills = [
     {
         name: 'HTML / CSS',
-        icon: 'fa-brands fa-html5',
+        icon: 'fa-brands:html5',
         level: 4.5,
     },
     {
         name: 'TypeScript',
-        icon: 'fa-brands fa-js',
+        icon: 'fa-brands:js',
         level: 4.5,
     },
     {
         name: 'Nuxt',
-        icon: 'fa-brands fa-vuejs',
+        icon: 'fa-brands:vuejs',
         level: 4,
     },
     {
         name: 'Node',
-        icon: 'fa-brands fa-node-js',
+        icon: 'fa-brands:node-js',
         level: 4.5,
     },
     {
         name: 'Express',
-        icon: 'fa-brands fa-node-js',
+        icon: 'fa-brands:node-js',
         level: 4.5,
     },
     {
-        name: 'MongoDB',
-        icon: 'fa-brands fa-mongodb',
-        level: 3,
-    },
-    {
         name: 'Git',
-        icon: 'fa-brands fa-git-alt',
+        icon: 'fa-brands:git-alt',
         level: 3.5,
     },
     {
         name: 'Docker',
-        icon: 'fa-brands fa-docker',
+        icon: 'fa-brands:docker',
         level: 3.5,
     },
     {
         name: 'Linux',
-        icon: 'fa-brands fa-linux',
+        icon: 'fa-brands:linux',
         level: 4,
     },
     {
         name: 'Rust',
-        icon: 'fa-brands fa-rust',
-        level: 2,
+        icon: 'fa-brands:rust',
+        level: 1,
     },
     {
         name: 'Python',
-        icon: 'fa-brands fa-python',
-        level: 4,
+        icon: 'fa-brands:python',
+        level: 3.5,
     }
 ]
 
@@ -88,27 +83,31 @@ const upperStar = (level: number) => {
                         class="skill"
                     >
                         <span>
-                            <font-awesome-icon
-                                :icon="skill.icon"
+                            <Icon
+                                :name="skill.icon"
+                                size="1em"
                             />
                         </span>
                         <span>
                             {{ skill.name }}
                         </span>
                         <span>
-                            <font-awesome-icon
-                                icon="fa-solid fa-star"
+                            <Icon
+                                name="fa6-solid:star"
                                 v-for="i in lowerStar(skill.level)"
                                 :key="i"
+                                size="1em"
                             />
-                            <font-awesome-icon
-                                icon="fa-solid fa-star-half-alt"
+                            <Icon
+                                name="fa6-solid:star-half-stroke"
                                 v-if="halfStar(skill.level)"
+                                size="1em"
                             />
-                            <font-awesome-icon
-                                icon="fa-regular fa-star"
+                            <Icon
+                                name="fa6-regular:star"
                                 v-for="i in (5 - upperStar(skill.level))"
                                 :key="i"
+                                size="1em"
                             />
                         </span>
                     </div>
@@ -119,6 +118,10 @@ const upperStar = (level: number) => {
                 id="experiences"
             >
                 <h1>Experience</h1>
+
+                <p>
+                    Work in progress...
+                </p>
             </div>
         </div>
     </section>
@@ -172,6 +175,10 @@ section {
                 align-items: center;
                 margin-top: 2rem;
 
+                @media (max-width: 768px) {
+                    gap: 0.5rem;
+                }
+
                 div.skill {
                     display: flex;
                     flex-direction: column;
@@ -185,6 +192,11 @@ section {
                     background-color: rgba(255, 255, 255, 0.1);
                     text-align: center;
 
+                    @media (max-width: 768px) {
+                        width: 7rem;
+                        height: 6.5rem;
+                    }
+
                     span {
                         width: 100%;
                         display: flex;
@@ -194,17 +206,37 @@ section {
 
                     span:first-child {
                         font-size: 2rem;
+
+                        @media (max-width: 768px) {
+                            font-size: 1.5rem;
+                        }
                     }
 
                     span:nth-child(2) {
                         font-size: 1.5rem;
+
+                        @media (max-width: 768px) {
+                            font-size: 0.9rem;
+                        }
                     }
 
                     span:last-child {
                         padding-top: .5rem;
                         font-size: 1.1rem;
+
+                        @media (max-width: 768px) {
+                            font-size: 0.7rem;
+                        }
                     }
                 }
+            }
+        }
+
+        div#experiences {
+            p {
+                font-style: italic;
+                font-size: 1rem;
+                text-align: center;
             }
         }
     }

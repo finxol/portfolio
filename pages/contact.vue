@@ -4,7 +4,7 @@ const contacts = reactive([
         name: 'Email',
         link: 'mailto:contact@colinozanne.fr',
         linkText: 'contact@colinozanne.fr',
-        icon: 'fa-solid fa-envelope',
+        icon: 'fa6-solid:envelope',
         details: 'Feel free to send me an email if you wish to get in touch.',
         show: false,
     },
@@ -12,7 +12,7 @@ const contacts = reactive([
         name: 'GitHub',
         link: 'https://github.com/finxol',
         linkText: 'finxol',
-        icon: 'fa-brands fa-github',
+        icon: 'fa-brands:github',
         details: 'I publish most of my work over on Github, so make sure to check it out!',
         show: false,
     },
@@ -20,7 +20,7 @@ const contacts = reactive([
         name: 'LinkedIn',
         link: 'https://www.linkedin.com/in/colin-ozanne-99594822a/',
         linkText: 'Colin Ozanne',
-        icon: 'fa-brands fa-linkedin',
+        icon: 'fa-brands:linkedin',
         details: "I'm also on LinkedIn, so feel free to connect with me there!",
         show: false,
     },
@@ -60,8 +60,8 @@ const open = (contact) => {
                 @click="open(contact)"
             >
                 <span>
-                    <font-awesome-icon
-                        :icon="contact.icon"
+                    <Icon
+                        :name="contact.icon"
                     />
                 </span>
                 <span>
@@ -117,7 +117,8 @@ const open = (contact) => {
 </template>
 
 <style scoped lang="scss">
-@import "assets/css/main.scss";
+@use "assets/css/main.scss" as *;
+@use "sass:color";
 
 $container-width: clamp(30rem, 60vw, 60rem);
 
@@ -197,7 +198,7 @@ section {
             }
 
             &.open {
-                background-color: mix(#fff, $dark-blue, 20%);
+                background-color: color.mix(#fff, $dark-blue, 20%);
                 color: #ffffff;
             }
         }
@@ -240,7 +241,7 @@ section {
         color: #000000;
         background-color: #ffffff;
         border-radius: .2rem;
-        border: 0 solid lighten($dark-blue, 20%);
+        border: 0 solid color.adjust($dark-blue, $lightness: 20%);
         transition: height, padding, border;
         transition-duration: .5s;
         transition-timing-function: ease-in-out;

@@ -1,24 +1,36 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  telemetry: false,
+    telemetry: false,
 
-  css: [
-      '~/assets/css/main.scss',
-  ],
+    vite: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    api: 'modern-compiler',
+                    silenceDeprecations: ['legacy-js-api'],
+                },
+            },
+        },
+    },
 
-  app: {
-      head: {
-          title: 'Colin Ozanne',
-          meta: [
-              {charset: 'utf-8'},
-              {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-              {hid: 'description', name: 'description', content: 'Colin Ozanne\'s personal portfolio' },
-          ],
-          htmlAttrs: {
-              lang: 'en',
-          }
-      },
-  },
+    css: [
+        '~/assets/css/main.scss',
+    ],
 
-  compatibilityDate: '2024-12-11'
+    app: {
+        head: {
+            title: 'Colin Ozanne',
+            meta: [
+                {charset: 'utf-8'},
+                {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+                {hid: 'description', name: 'description', content: 'Colin Ozanne\'s personal portfolio'},
+            ],
+            htmlAttrs: {
+                lang: 'en',
+            }
+        },
+    },
+
+    compatibilityDate: '2024-12-11',
+    modules: ['@nuxt/icon']
 })
