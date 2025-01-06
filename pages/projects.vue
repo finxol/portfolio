@@ -16,6 +16,13 @@ const projects: project[] = [
         tags: ['Nuxt.js 2', 'Express.js', 'MongoDB', 'Docker', 'GitHub Actions'],
     },
     {
+        name: 'VisCircle Demo for Recaro',
+        link: 'https://clients.viscircle.com/Recaro/pitch2023/',
+        description: 'A demo for the Recaro pitch at VisCircle',
+        img: '/viscircle_recaro_pitch.jpg',
+        tags: ['Vue.js', 'Three.js'],
+    },
+    {
         name: 'Blog',
         link: 'https://finxol.io',
         description: 'My personal blog where I write about cybersecurity, web development and other stuff',
@@ -32,7 +39,7 @@ const projects: project[] = [
     {
         name: 'Nuit de l\'info 2021 and 2022',
         link: 'https://www.nuitdelinfo.com/',
-        description: 'Website for the 2022 edition of the Nuit de l\'info',
+        description: 'Here, website for the 2022 edition of the Nuit de l\'info',
         img: '/nuitdelinfo2022.png',
         tags: ['Nuxt.js 3', 'SCSS', 'Python Flask', 'MySQL'],
     },
@@ -43,13 +50,6 @@ const projects: project[] = [
         img: '/prestomadose.webp',
         tags: ['Javascript', 'Firefox Addon'],
     },
-    {
-        name: 'Portfolio',
-        link: 'https://colinozanne.fr',
-        description: 'My portfolio website where I showcase my projects and write about my experiences',
-        img: '/colinozanne-homepage.png',
-        tags: ['Nuxt.js 3', 'TypeScript', 'SCSS'],
-    }
 ]
 
 function openLink(link: string) {
