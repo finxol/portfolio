@@ -1,26 +1,26 @@
 {
-  "name": "colinozanne",
-  "private": true,
-  "type": "module",
-  "version": "2.0.0",
-  "packageManager": "pnpm@9.15.0",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@iconify-json/fa-brands": "^1.2.0",
-    "@iconify-json/fa6-regular": "^1.2.2",
-    "@iconify-json/fa6-solid": "^1.2.2",
-    "@iconify-json/mingcute": "^1.2.1",
-    "@nuxt/icon": "^1.10.1",
-    "nuxt": "3.16.0"
-  },
-  "dependencies": {
-    "sass": "^1.82.0",
-    "sass-loader": "^16.0.4"
-  }
+    "name": "colinozanne",
+    "private": true,
+    "type": "module",
+    "version": "2.0.0",
+    "packageManager": "pnpm@9.15.0",
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare"
+    },
+    "devDependencies": {
+        "@iconify-json/fa-brands": "^1.2.1",
+        "@iconify-json/fa6-regular": "^1.2.3",
+        "@iconify-json/fa6-solid": "^1.2.3",
+        "@iconify-json/mingcute": "^1.2.3",
+        "@nuxt/icon": "^1.11.0",
+        "nuxt": "3.16.1"
+    },
+    "dependencies": {
+        "sass": "^1.86.0",
+        "sass-loader": "^16.0.5"
+    }
 }
