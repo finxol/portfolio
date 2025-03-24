@@ -1,5 +1,5 @@
 <script setup lang="ts">
-interface project {
+type Project = {
     name: string
     description: string
     link?: string
@@ -7,13 +7,20 @@ interface project {
     tags?: string[]
 }
 
-const projects: project[] = [
+const projects: Project[] = [
+    {
+        name: 'Karr',
+        link: 'https://github.com/finxol/karr',
+        description: 'Federated carpool platform for businesses',
+        img: '/karr_demo.png',
+        tags: ['Next.js', 'Hono', 'Ory Auth', 'CI/CD'],
+    },
     {
         name: 'UniCovoit',
-        link: 'https://unicovoit.fr',
+        link: 'https://github.com/unicovoit/unicovoit',
         description: 'Carpool platform for students',
         img: '/unicovoit_homepage.jpg',
-        tags: ['Nuxt.js 2', 'Express.js', 'MongoDB', 'Docker', 'GitHub Actions'],
+        tags: ['Nuxt.js 2', 'Express.js', 'MongoDB', 'CI/CD'],
     },
     {
         name: 'VisCircle Demo for Recaro',
@@ -42,13 +49,6 @@ const projects: project[] = [
         description: 'Here, website for the 2022 edition of the Nuit de l\'info',
         img: '/nuitdelinfo2022.png',
         tags: ['Nuxt.js 3', 'SCSS', 'Python Flask', 'MySQL'],
-    },
-    {
-        name: 'PrestoMaDose',
-        link: 'https://github.com/finxol/PrestoMaDose',
-        description: 'A script to search for a vaccination appointment against COVID-19. To use on the Doctolib website.',
-        img: '/prestomadose.webp',
-        tags: ['Javascript', 'Firefox Addon'],
     },
 ]
 
@@ -145,8 +145,8 @@ section {
         div.project {
             position: relative;
             display: block;
-            width: 33rem;
-            height: 20rem;
+            width: clamp(25rem, 40%, 33rem);
+            aspect-ratio: 16 / 9;
             overflow: hidden;
             border-radius: .3rem;
             box-shadow: 5px 5px 1rem rgba(0, 0, 0, .5);
