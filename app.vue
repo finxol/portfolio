@@ -60,14 +60,14 @@ const routeChanged: Function = () => {
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     font-family: 'goudy-old-style', sans-serif;
     color: $color-text;
     background-color: $color-background;
 
     div#app {
-        height: 100vh;
+        height: 100dvh;
         width: 100vw;
         overflow: hidden;
         margin: 0;
@@ -77,7 +77,7 @@ body {
         main {
             position: relative;
             z-index: 2;
-            height: 100vh;
+            height: 100dvh;
             width: 100vw;
             margin: 0;
             display: flex;

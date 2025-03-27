@@ -153,6 +153,7 @@ section#ed-exp {
             height: 100%;
             width: calc(100% - 3rem);
             margin-left: 3rem;
+            margin-bottom: 2rem;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
 
             @media (max-width: 768px) {
@@ -230,6 +231,8 @@ section#ed-exp {
         }
 
         div#experiences {
+            margin-bottom: 2rem;
+
             p {
                 font-style: italic;
                 font-size: 1rem;
