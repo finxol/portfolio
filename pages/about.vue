@@ -34,6 +34,10 @@
             Feel free to use my <NuxtLink to="/contact">contact details</NuxtLink> if you wish to get in touch.
         </p>
 
+        <p class="split">
+            I also love playing the drums and all sorts of instruments.
+        </p>
+
         <small>
             Please note that this website is still a work in progress.
         </small>
@@ -83,7 +87,7 @@
             >
                 <h1>Experience</h1>
                 <p>
-                    VisCircle
+                    VisCircle internship
                 </p>
             </div>
         </div>
@@ -111,6 +115,10 @@ section#about {
     p {
         margin: 0;
         text-align: left;
+
+        &.split {
+            margin-top: 2rem;
+        }
     }
 
     small {
