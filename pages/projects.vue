@@ -10,9 +10,9 @@ type Project = {
 const projects: Project[] = [
     {
         name: 'Karr',
-        link: 'https://github.com/finxol/karr',
+        link: 'https://karr.mobi',
         description: 'Federated carpool platform for businesses',
-        img: '/karr_demo.png',
+        img: '/karr_demo.jpg',
         tags: ['Next.js', 'Hono', 'OpenAuth', 'CI'],
     },
     {

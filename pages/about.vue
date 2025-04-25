@@ -22,7 +22,7 @@
             and <strong>systems administration</strong>.
         </p>
         <p>
-            I'm currently working on <a href="https://github.com/finxol/karr" target="_blank" rel="noreferrer noopener">Karr</a>,
+            I'm currently working on <a href="https://karr.mobi" target="_blank" rel="noreferrer noopener">Karr</a>,
             a federated carpooling platform for businesses.
             <br>
             You can find my other most interesting projects just <NuxtLink to="/projects">next door</NuxtLink>.
