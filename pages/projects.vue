@@ -10,7 +10,7 @@ type Project = {
 const projects: Project[] = [
     {
         name: 'Karr',
-        link: 'https://karr.mobi',
+        link: 'https://karr.mobi?utm_source=portfolio&utm_content=projects-page',
         description: 'Federated carpool platform for businesses',
         img: '/karr_demo.jpg',
         tags: ['Next.js', 'Hono', 'OpenAuth', 'CI'],
