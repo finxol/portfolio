@@ -5,6 +5,10 @@ export default defineNuxtConfig({
         enabled: false,
     },
 
+    future: {
+        compatibilityVersion: 4,
+    },
+
     vite: {
         css: {
             preprocessorOptions: {
