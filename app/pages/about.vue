@@ -100,7 +100,9 @@
                     <div
                         class="experience-element"
                     >
-                        <h2>Pépite</h2>
+                        <h2>
+                            <a href="https://www.pepitebretagne.fr/">Pépite</a>
+                        </h2>
                         <h3>Entrepreneurship project</h3>
                         <p>Q1-Q2 2025</p>
                     </div>
@@ -108,7 +110,9 @@
                     <div
                         class="experience-element"
                     >
-                        <h2>VisCirle</h2>
+                        <h2>
+                            <a href="https://viscircle.de/?lang=en">VisCirle</a>
+                        </h2>
                         <h3>Internship</h3>
                         <p>May-August 2023</p>
                     </div>
