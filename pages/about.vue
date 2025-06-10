@@ -52,6 +52,10 @@
             <div
                 id="education"
             >
+                <Icon
+                    class="down-icon"
+                    name="fa6-solid:caret-down"
+                />
                 <h1>Education</h1>
                 <div
                     id="education-container"
@@ -85,10 +89,30 @@
             <div
                 id="experiences"
             >
+                <Icon
+                    class="down-icon"
+                    name="fa6-solid:caret-down"
+                />
                 <h1>Experience</h1>
-                <p>
-                    VisCircle internship
-                </p>
+                <div
+                    id="experience-container"
+                >
+                    <div
+                        class="experience-element"
+                    >
+                        <h2>Pépite</h2>
+                        <h3>Entrepreneurship project</h3>
+                        <p>Q1-Q2 2025</p>
+                    </div>
+
+                    <div
+                        class="experience-element"
+                    >
+                        <h2>VisCirle</h2>
+                        <h3>Internship</h3>
+                        <p>May-August 2023</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -96,7 +120,7 @@
 
 <style scoped lang="scss">
 section#about {
-    min-height: 83%;
+    min-height: 87%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -129,7 +153,6 @@ section#about {
 }
 
 section#ed-exp {
-    //min-height: calc(100% - 2rem);
     width: calc(100% - 2rem);
     margin: 0 auto 8rem;
 
@@ -149,6 +172,28 @@ section#ed-exp {
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr;
         }
+
+        .down-icon {
+            width: 100%;
+            animation: bounce 1s infinite;
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        @keyframes bounce {
+            0%,
+            100% {
+              transform: translateY(-25%);
+              animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+
+            50% {
+              transform: none;
+              animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+          }
 
         h1 {
             margin: 0;
@@ -232,19 +277,81 @@ section#ed-exp {
                     }
 
                     p {
-                        font-size: 0.8rem;
+                        font-size: 1rem;
                     }
                 }
             }
         }
 
         div#experiences {
+            height: 100%;
+            width: calc(100% - 3rem);
+            margin-right: 3rem;
+            margin-left: 3rem;
             margin-bottom: 2rem;
+
+            @media (max-width: 768px) {
+                width: calc(100% - 1.5rem);
+                margin-left: 1.5rem;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
 
             p {
                 font-style: italic;
                 font-size: 1rem;
                 text-align: center;
+            }
+
+            div#experience-container {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: flex-start;
+                margin: 2rem auto;
+                gap: 1rem;
+
+                @media (max-width: 768px) {
+                    gap: 0.5rem;
+                }
+
+                div.experience-element {
+                    display: flex;
+                    position: relative;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 0.75rem;
+                    margin-left: 2rem;
+                    width: calc(90% - 2rem);
+                    padding: 1rem 1.5rem;
+                    border: none;
+                    border-radius: 0.5rem;
+                    background-color: rgba(255, 255, 255, 0.1);
+                    text-align: center;
+
+                    h2, h3, p {
+                        margin: 0;
+                        padding: 0;
+                        text-align: left;
+                        font-size: 1rem;
+                        color: #f0f0f0;
+                    }
+
+                    h2 {
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                    }
+
+                    h3 {
+                        font-size: 1.2rem;
+                        font-style: italic;
+                    }
+
+                    p {
+                        font-size: 1rem;
+                    }
+                }
             }
         }
     }
